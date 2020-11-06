@@ -4,13 +4,15 @@ import Character from "./Character.js";
 export default function Characters(props) {
     const { vehicleData } = props;
 
+    if (!props.vehicleData) return <h2>Loading...</h2>
+
     return (
         <div>
-            {vehicleData.map(vehicle => {
+            {vehicleData.map(vehicleObj => {
                 return (
                     <Character
-                        key={vehicle.url}
-                        vehicleDetails={vehicle}
+                        key={vehicleObj.url}
+                        vehicle={vehicleObj}
                     />
                 )
             })}

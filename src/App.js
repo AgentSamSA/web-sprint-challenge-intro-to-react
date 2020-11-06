@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from "axios";
 import Characters from "./components/Characters.js";
@@ -12,25 +12,21 @@ const App = () => {
   // sync up with, if any.
   useEffect(() => {
     axios.get("https://swapi.dev/api/vehicles/?page=3")
-    .then(res => {
-      console.log(res.data.results);
-      setVehicleData(res.data.results);
-    })
-    .catch(err => {
-      console.log("error", err);
-    });
+      .then(res => {
+        console.log(res.data.results);
+        setVehicleData(res.data.results);
+      })
+      .catch(err => {
+        console.log("error", err);
+      });
   }, []);
 
 
   return (
-    <>
     <div className="App">
       <h1 className="Header">Vehicles of Episode 2</h1>
+        <Characters vehicleData={vehicleData} />
     </div>
-    <div>
-      <Characters vehicleData={vehicleData}/>
-    </div>
-    </>
   );
 }
 
