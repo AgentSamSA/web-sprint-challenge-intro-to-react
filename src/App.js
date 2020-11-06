@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from "axios";
 import Characters from "./components/Characters.js";
+import styled from "styled-components";
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -23,11 +24,17 @@ const App = () => {
 
 
   return (
-    <div className="App">
+    <StyledApp className="App">
       <h1 className="Header">Vehicles of Episode 2</h1>
         <Characters vehicleData={vehicleData} />
-    </div>
+    </StyledApp>
   );
 }
+
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export default App;
