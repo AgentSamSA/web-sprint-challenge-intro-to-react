@@ -36,21 +36,22 @@ const App = () => {
   return (
     <StyledApp className="App">
       <h1 className="Header">Vehicles of Episode 2</h1>
+      <div>
       {vehicleData.map(vehicleObj => {
         return (
-          <div>
-            <div className="Header">
-              <h1>{vehicleObj.name} <button onClick={() => openDetails(vehicleObj.url)}>+</button></h1>
-            </div>
-            {currentVehicleId && <Character
-              key={vehicleObj.url}
-              vehicleId={currentVehicleId}
-              vehicle={vehicleObj}
-              close={closeDetails}
-            />}
+          <div className="Header">
+            <h1>{vehicleObj.name} <button onClick={() => openDetails(vehicleObj.url)}>+</button></h1>
           </div>
         )
-      })}
+      }
+      )}
+        {currentVehicleId && <Character
+          key={currentVehicleId.url}
+          vehicleId={currentVehicleId}
+          vehicle={currentVehicleId}
+          close={closeDetails}
+        />}
+      </div>
     </StyledApp>
   );
 }
