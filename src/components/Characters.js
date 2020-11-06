@@ -23,14 +23,14 @@ export default function Characters(props) {
                 return (
                     <div>
                         <div className="Header">
-                            <h1>{vehicleObj.name} <button>+</button></h1>
+                            <h1>{vehicleObj.name} <button onClick={() => openDetails(vehicleObj.url)}>+</button></h1>
                         </div>
-                        <Character
+                        {currentVehicleId && <Character
                             key={vehicleObj.url}
                             vehicleId={currentVehicleId}
                             vehicle={vehicleObj}
                             close={closeDetails}
-                        />
+                        />}
                     </div>
                 )
             })}
